@@ -1,0 +1,357 @@
+<div id='content'  ng-controller="page4Controller" class="hidden" ng-init='init()'>
+	<div class='row'>	
+		<div class='col-xs-12'>
+	
+
+			<h1>A<code>ng</code>ular Behaviors and Attributes</h1>
+			<hr>
+		
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs" role="tablist" ng-init="focusOn = 'nginit'">
+			    <li role="presentation" class="active"	><a ng-click='focusOn = "nginit"' 		role="tab" data-toggle="tab">ng-init</a></li>
+			    <li role="presentation" 				><a ng-click='focusOn = "ngclick"' 		role="tab" data-toggle="tab">ng-click</a></li>
+			    <li role="presentation"					><a ng-click='focusOn = "ngmodel"' 		role="tab" data-toggle="tab">ng-model</a></li>
+			    <li role="presentation"					><a ng-click='focusOn = "ngchange"'  	role="tab" data-toggle="tab">ng-change</a></li>
+			    <li role="presentation"					><a ng-click='focusOn = "ngoptions"'  	role="tab" data-toggle="tab">ng-options</a></li>
+			    <li role="presentation"					><a ng-click='focusOn = "ngsrc"'  		role="tab" data-toggle="tab">ng-src</a></li>
+			    <li role="presentation"					><a ng-click='focusOn = "ngclass"'  	role="tab" data-toggle="tab">ng-class</a></li>
+			    <li role="presentation"					><a ng-click='focusOn = "ngshow"' 	 	role="tab" data-toggle="tab">ng-show/hide</a></li>
+			  </ul>	
+			
+			<br><br>
+			
+
+			<!-- ngInit -->
+			<div ng-if='focusOn == "nginit"' class='col-xs-12' ng-init='initFunction(); myVariable = {name: "Wolverine", power: "Rapid healing" }'>
+				<h3>ng-Init</h3>
+				<hr>
+				<p>
+					Used to create or assign a scoped variable on startup.  Can also be used to call a function.  
+				</p>
+				<hr>
+				<div class='col-xs-12 col-sm-6'>
+					<h3>HTML:</h3>	
+					<pre>
+{{ngInitExample}}						
+					</pre>
+				</div>
+				<div class='col-xs-12 col-sm-6'>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.initFunction = function(){
+	console.log("Logged!")
+}
+</pre>
+				</div>
+				<div class='col-xs-12 pull-left'>	
+					<h3>Results:</h3>	
+					<pre>
+// output "Logged!"
+					
+<p>{{myVariable.name}}, {{myVariable.power}}</p>
+					</pre>		
+				</div>
+				<br><br>
+			</div>
+			<!-- end ngInit -->
+			
+			<!-- ngClick -->
+			<div ng-if='focusOn == "ngclick"' class='col-xs-12 pull-left'>
+				<h3>ng-Click</h3>
+				<hr>
+				<div class='col-xs-12 col-sm-6'>
+					<h3>HTML:</h3>	
+					<pre>
+{{onClickExample}}
+					</pre>
+				</div>
+				<div class='col-xs-12 col-sm-6'>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.counter = 0;	
+	
+$scope.clickMe = function(){
+  alert("I've been clicked!")	
+}
+</pre>
+				</div>
+				<div class='col-xs-12 pull-left'>	
+					<h3>Results:</h3>	
+					<pre>
+<button ng-click='clickMe()'>Run Function</button>
+<button ng-click='counter = counter + 1'>Add to Counter</button>
+<hr>
+Counter: {{counter}}
+					</pre>		
+				</div>
+				<br><br>
+			</div>
+			<!-- end ngInit -->
+			
+			<!-- ngChange -->
+			<div ng-if='focusOn == "ngmodel"' class='col-xs-12 pull-left'>
+				<h3>ng-Model</h3>
+				<hr>
+				<div class='col-xs-12 col-sm-6'>
+					<h3>HTML:</h3>	
+					<pre>
+{{ngModelExample}}						
+					</pre>
+				</div>
+				<div class='col-xs-12 col-sm-6'>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.answers = {
+	name: "Allen",
+	age: 32,
+	from: "NV"
+}
+</pre>
+				</div>
+				<div class='col-xs-12 pull-left'>	
+					<h3>Results:</h3>	
+					<pre>
+<input ng-model='answers.name'>
+<input ng-model='answers.age'>
+<input ng-model='answers.from'>
+<hr>
+//output results (json) 
+{{answers}}					
+					</pre>		
+				</div>
+				<br><br>
+			</div>
+			<!-- end ngChange -->
+
+			<!-- ngChange -->
+			<div ng-if='focusOn == "ngchange"' class='col-xs-12 pull-left'>
+				<h3>ng-Change</h3>
+				<hr>
+				<div class='col-xs-12 col-sm-6'>
+					<h3>HTML:</h3>	
+					<pre>
+{{onChangeExample}}						
+					</pre>
+				</div>
+				<div class='col-xs-12 col-sm-6'>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.runOnChange = function(number){
+	trace("You have " + number + " kids.");
+};
+</pre>
+				</div>
+				<div class='col-xs-12 pull-left'>	
+					<h3>Results:</h3>	
+					<pre>
+<label>How many kids do you have? (1-99)</label>
+<input style='width: 100px' type='number' min='0' max='99'  ng-model='myAnswer' ng-change='runOnChange(myAnswer)'>					
+					</pre>		
+				</div>
+				<br><br>
+			</div>
+			<!-- end ngChange -->
+			
+			
+			<!-- ngOptions -->
+			<div ng-if='focusOn == "ngoptions"' class='col-xs-12 pull-left'>
+				<h3>ng-Options</h3>
+				<hr>
+				<div class='col-xs-12 col-sm-6'>
+					<h3>HTML:</h3>	
+					<pre>
+{{ngSelectExample}}						
+					</pre>
+				</div>
+				<div class='col-xs-12 col-sm-6'>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.ngSelectList = [
+   {id: 1, title: 'Wizard'},
+   {id: 2, title: 'Ninja'},
+   {id: 3, title: 'Ranger'},
+];	
+</pre>
+				</div>
+				<div class='col-xs-12'>	
+					<h3>Results:</h3>	
+					<pre>
+<select ng-model='ngOptionsAnswer' ng-options="entry.id as entry.title for entry in ngSelectList"></select>	
+<hr>
+Selected: {{ngOptionsAnswer}}				
+					</pre>		
+				</div>
+				<br><br>
+			</div>		
+			<!-- end ngOptions -->					
+			
+			
+			<!-- ngSrc -->
+			<div ng-if='focusOn == "ngsrc"' class='col-xs-12 pull-left'>
+				<h3>ng-Src</h3>
+				<hr>
+				<div class='col-xs-12 col-sm-6'>
+					<h3>HTML:</h3>	
+					<pre>
+{{ngImageExample}};						
+					</pre>
+				</div>
+				<div class='col-xs-12 col-sm-6'>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.ngSelectObj =
+ 'http://lorempixel.com/400/200/';	
+$scope.ngSelectObj2 = "profileIcon.png"
+</pre>
+				</div>
+				<div class='col-xs-12 pull-left'>	
+					<h3>Results:</h3>	
+					<pre>
+<label>Image 1</label>						
+<img ng-src='{{ngSelectObj}}'>	
+<hr>
+<label>Image 2</label>	
+<img style='width: 150px; height: auto' ng-src='media/images/{{ngSelectObj2}}'>					
+					</pre>		
+				</div>
+				<br><br>				
+			</div>
+			<!-- end ngSrc -->
+			
+			
+			<!-- ngClass -->
+<style>
+.blueOutline{
+  border: 1px solid blue
+}
+
+.redOutline{
+  border: 1px solid red
+}
+</style>			
+			<div ng-if='focusOn == "ngclass"' class='col-xs-12 pull-left'>
+				<h3>ng-Class</h3>
+				<hr>
+				<div class='col-xs-12 col-sm-6'>
+					<h3>HTML:</h3>	
+					<pre>
+{{ngClassExample}}						
+					</pre>
+				</div>
+				<div class='col-xs-12 col-sm-6'>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.simpleClass = "outline";
+</pre>
+				</div>
+				<div class='col-xs-12 pull-left' ng-init='simpleClass = "outline"'>	
+					<h3>Results:</h3>	
+					<pre>
+						
+												
+						<div class='col-xs-12' ng-class='simpleClass' style='background: white' >
+							<p>{{simpleClass}} Class Added</p>
+						</div>	
+							
+								
+							
+					</pre>		
+				</div>
+				<br><br>
+			</div>
+			<!-- end ngClass -->
+			
+			<!-- ngShow -->					
+			<div ng-if='focusOn == "ngclass"' class='col-xs-12 pull-left' ng-init='myCondition = true'>
+				<h3>ng-Class with Conditionals</h3>
+				<hr>
+				<div class='col-xs-12 col-sm-6'>
+					<h3>HTML:</h3>	
+					<pre>
+{{ngClassConditional}}						
+					</pre>
+				</div>
+				<div class='col-xs-12 col-sm-6'>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.myCondition = true;
+</pre>
+				</div>
+				<div class='col-xs-12 pull-left'>	
+					<h3>Results:</h3>	
+					
+					<pre>
+<select ng-model='myCondition'>
+	<option value="true">True</option>
+	<option value="false">False</option>
+</select>						
+<div class='small-12'>
+	<div class='img-responsive' ng-class="{true: 'blueOutline', false: 'redOutline'}[myCondition]">
+	 <center>
+ Condition: {{myCondition}}
+ <hr>
+ <i class='fa fa-4x' ng-class='{true: "fa-thumbs-o-up", false: "fa-thumbs-o-down" }[myCondition]'></i>
+ <br>
+	 </center>
+	</div>					
+</div>
+					</pre>		
+				</div>
+				<br><br>
+			</div>	
+			<!-- end ngClass/w -->		
+		
+
+
+
+			<!-- ngShow -->					
+			<div ng-if='focusOn == "ngshow"' class='col-xs-12 pull-left' ng-init=''>
+				<h3>ng-Show | ng-Hide</h3>
+				<hr>
+				<div class='col-xs-12 col-sm-6'>
+					<h3>HTML:</h3>	
+					<pre>
+{{ngShowExample}}						
+					</pre>
+				</div>
+				<div class='col-xs-12 col-sm-6'>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.isShowing = true;
+</pre>
+				</div>
+				<div class='col-xs-12 pull-left' ng-init='simpleClass = "outline"'>	
+					<h3>Results:</h3>	
+					<pre>
+						
+						isShowing: <button  ng-click='isShowing = !isShowing'>{{isShowing}}</button>
+												
+						<div class='col-xs-12' ng-show='isShowing' style='background: white;' >
+							<center>
+Should appear on true:
+								<img class='img-responsive' src='http://lorempixel.com/400/200/'>
+							</center>
+						</div>	
+
+						<div class='col-xs-12' ng-hide='isShowing' style='background: white;' >
+							<center>
+Should appear on false:
+								<img class='img-responsive' src='http://lorempixel.com/400/200/sports'>
+							</center>
+						</div>								
+								
+						
+					</pre>		
+				</div>
+				<br><br>
+			</div>	
+			<!-- end ngClass/w -->		
+	
+		
+				
+		</div>
+	</div>
+</div>
+<br>
+
+

@@ -1,0 +1,216 @@
+<div id='content'  ng-controller="homeController" class="hidden" ng-init='init()'>
+	
+	
+	<h1>Why Use A<code>ng</code>ularJS</h1>
+	<p>Because it will save you a <em>ton</em> of time.  Here is a brief list of conventions written with Angular and it's jQuery counterpart.</p>
+	<hr>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist" ng-init="focusOn = 'sb'">
+    <li role="presentation" class="active"	><a ng-click='focusOn = "sb"' 	role="tab" data-toggle="tab">Simple Binding</a></li>
+    <li role="presentation" 				><a ng-click='focusOn = "db"' 	role="tab" data-toggle="tab">Two-Way Binding</a></li>
+    <li role="presentation"					><a ng-click='focusOn = "list"'  	role="tab" data-toggle="tab">Lists</a></li>
+    <li role="presentation"					><a ng-click='focusOn = "table"'  	role="tab" data-toggle="tab">Filters</a></li>
+  </ul>	
+	
+	<br><br>
+	<div class='row' ng-if='focusOn == "sb"'>
+		<div class='col-xs-12 pull-left'>
+			<h3>Example 1:  Simple Binding</h3>		
+			<hr>
+		</div>
+		
+
+		<div class='col-xs-12  col-sm-6 pull-left'>
+			<h4>jQuery <span class='pull-right'><a ng-click='snippetChange("html")'>HTML</a>&nbsp; <a ng-click='snippetChange("js")'>JS</a>			</span></h4>
+			<hr>
+			<pre>{{exampleSnippet0_JQ}}</pre>
+			
+		</div>
+		
+		<div class='col-xs-12 col-sm-6  pull-left'>
+			<h4>AngularJS <span class='pull-right'><a ng-click='snippetChange("html")'>HTML</a>&nbsp; <a ng-click='snippetChange("js")'>JS</a>			</span></h4>
+			<hr>			
+			<pre>{{exampleSnippet0_ANG}}</pre>
+			
+		</div>	
+
+		
+		<div class='col-xs-12 col-sm-12 pull-left'>
+			<br>&nbsp;<br>
+			<h4>Results</h4>			
+			<hr>
+			<pre>
+Results:  
+
+// in an element
+<p>{{varibleId}}</p>
+
+// in an input
+<input ng-model="varibleId">
+
+
+// textarea
+<textarea ng-model='varibleId'></textarea>
+
+			</pre>
+			<hr>
+		</div>	
+						
+	
+			
+	</div>
+
+	<div class='row' ng-if='focusOn == "db"'>
+		
+		
+		<div class='col-xs-12 pull-left'>
+			<h3>Example 2:  Two-Way Binding</h3>
+			<hr>		
+		</div>
+		
+
+		<div class='col-xs-12  col-sm-6 pull-left'>
+			<h4>jQuery <span class='pull-right'><a ng-click='snippetChange("html")'>HTML</a>&nbsp; <a ng-click='snippetChange("js")'>JS</a>			</span></h4>
+			<hr>
+			<pre>
+{{exampleSnippet_JQ}}
+			</pre>
+			
+		</div>
+		
+		<div class='col-xs-12 col-sm-6  pull-left'>
+			<h4>AngularJS <span class='pull-right'><a ng-click='snippetChange("html")'>HTML</a>&nbsp; <a ng-click='snippetChange("js")'>JS</a>			</span></h4>
+			<hr>
+			
+			<pre>
+{{exampleSnippet_ANG}}
+			</pre>
+			
+		</div>	
+
+		
+		<div class='col-xs-12 col-sm-12 pull-left'>
+			<br>&nbsp;<br>
+			<h4>Results</h4>			
+			Type something: &nbsp;<input ng-model='twoWayDB'>
+			<hr>
+			<pre>
+{{twoWayDB}}
+			</pre>
+			<hr>
+		</div>	
+			
+	</div>
+	
+	
+	
+	
+	<div class='row' ng-if='focusOn == "list"' ng-init="">
+		
+		
+		<div class='col-xs-12 pull-left'>
+			<h3>Example 3:  Lists</h3>
+			<hr>		
+		</div>
+		
+
+		<div class='col-xs-12  col-sm-6 pull-left'>
+			<h4>jQuery <span class='pull-right'><a ng-click='snippetChange("html")'>HTML</a>&nbsp; <a ng-click='snippetChange("js")'>JS</a>			</span></h4>
+			<hr>
+			<pre>
+{{exampleSnippet2_JQ}}
+			</pre>
+			
+		</div>
+		
+		<div class='col-xs-12 col-sm-6  pull-left'>
+			<h4>AngularJS <span class='pull-right'><a ng-click='snippetChange("html")'>HTML</a>&nbsp; <a ng-click='snippetChange("js")'>JS</a>			</span></h4>
+			<hr>
+			
+			<pre>
+{{exampleSnippet2_ANG}}
+			</pre>
+			
+		</div>	
+
+		
+		<div class='col-xs-12 col-sm-12 pull-left'>
+			<br>&nbsp;<br>
+			<h4>Results</h4>			
+				<input type='text' ng-model='newName' placeholder='Name'>
+				<input type='number' ng-model='newPower' placeholder="Power Level">
+				<button ng-click='dataSet.push({name: newName, powerLevel: newPower})'>Add to List</button>				
+			
+			<hr>
+				<ul>
+					<li ng-repeat='data in dataSet'><button ng-click='dataSet.splice($index, 1)'>Remove</button>&nbsp;&nbsp;Name: {{data.name}} | Power Level: {{data.powerLevel}}</li>
+				</ul>
+			<hr>
+		</div>	
+		
+		
+	</div>	
+	
+
+	<div class='row' ng-if='focusOn == "table"' ng-init="">
+		
+		
+		<div class='col-xs-12 pull-left'>
+			<h3>Example 4:  Filters</h3>
+			<hr>		
+		</div>
+		
+
+		<div class='col-xs-12  col-sm-6 pull-left'>
+			<h4>jQuery <span class='pull-right'><a ng-click='snippetChange("html")'>HTML</a>&nbsp; <a ng-click='snippetChange("js")'>JS</a>			</span></h4>
+			<hr>
+			<pre>
+{{exampleSnippet3_JQ}}
+			</pre>
+			
+		</div>
+		
+		<div class='col-xs-12 col-sm-6  pull-left'>
+			<h4>AngularJS <span class='pull-right'><a ng-click='snippetChange("html")'>HTML</a>&nbsp; <a ng-click='snippetChange("js")'>JS</a>			</span></h4>
+			<hr>			
+			<pre>
+{{exampleSnippet3_ANG}}
+			</pre>
+			
+		</div>	
+
+		
+		<div class='col-xs-12 col-sm-12 pull-left'>
+			<br>&nbsp;<br>
+			<h4>Results</h4>			
+
+			<hr>
+			Filter: <input ng-model="searchText"><br><br>
+			<table class='table table-hover '>
+				<tbody class='table-striped'>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>Born</th>
+				  <tr ng-repeat="entry in listOfNames | filter: searchText">				  	
+				    <td>{{ entry.name }}</td>
+				    <td>{{ entry.gender }}</td>
+				    <td>{{ entry.born }}</td>
+				  </tr>
+			  	</tbody>
+			</table>
+			<hr>
+		</div>	
+		
+		
+	</div>	
+	
+	
+	
+	
+
+	
+</div>
+<br>
+
+

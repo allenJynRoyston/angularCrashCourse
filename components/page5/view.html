@@ -1,0 +1,78 @@
+<div id='content'  ng-controller="page5Controller" class="hidden" ng-init='init()'>
+	<div class='row'>	
+		<div class='col-xs-12'>
+			<h1>Sandbox Page</h1>
+			<hr>
+			My name is:  {{obj.name}}
+			
+			<br>
+			
+			My age is: {{obj.age}}
+			
+			<br>
+			
+			My hair color is: {{obj.hair}}
+			
+			<hr>
+			
+			<input ng-model="obj.name"/>
+			
+			{{obj.name}}
+			
+			<hr>
+			
+			<div ng-repeat="entry in arrayObj">
+				<input ng-model="entry.name"/><input ng-model="entry.breed"/>
+			</div>
+			{{array2}}	
+			
+			<hr>
+			
+			<ul ng-repeat="entry in arrayObj">
+				<li>Entry:  {{entry.name}}, {{entry.age}}, {{entry.breed}}</li>
+			</ul>
+			
+            <hr>
+            
+            Filter: <input ng-model="searchText">
+            
+            <table class='table table-hover'>
+            	<tr>
+            		<th>Name</th>
+            		<th>Breed</th>
+            		<th>Age</th>
+            		<th>Submit</th>
+            	</tr>
+            	<tbody class='table-striped'>
+	            	<tr ng-repeat="entry in arrayObj | filter: searchText">
+	            		<td>{{$index}}: {{entry.name}}</td>
+	            		<td>{{entry.breed}}</td>
+	            		<td>{{entry.age}}</td> 
+	            		<td><button ng-click="deleteEntry($index)">Delete</button></td>          		
+	            	</tr>
+	            	<tr>
+	            		<td><input ng-model="captureEntry.name"></td>
+	            		<td><input ng-model="captureEntry.breed"></td>
+	            		<td><input ng-model="captureEntry.age"></td>
+	            		<td><button ng-click="addEntry()">Submit</button></td>
+	            	</tr>	
+            	</tbody>
+            </table>	
+            
+            <hr>
+            
+            <button ng-click='newObj.isColored = !newObj.isColored'>Change Class </button>
+            <div class="col-xs-12" ng-class="newObj.color2"> Hello, my name is {{obj.name}}. </div>	
+            <br>
+			<div class="col-xs-12" ng-class="newObj.color1"> Hello, my name is {{obj.name}}. </div>	
+			<br>
+			<div class="col-xs-12" ng-class="{true: newObj.color1, false: newObj.color2}[newObj.isColored]"> Hello, my name is {{obj.name}}. </div>	
+		</div>
+		
+		<hr>
+		
+		
+	</div>
+</div>
+<br>
+

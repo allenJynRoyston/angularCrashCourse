@@ -1,0 +1,32 @@
+.ng-enter {
+  	-webkit-transition: .8s;
+  	transition: .8s;
+  	opacity: 0;
+  	margin-top: 5px;
+}
+
+.ng-enter-active {
+	margin-top: 0px;
+  	opacity: 1; 
+}
+
+.ng-leave {
+  opacity: 1;
+}
+
+.ng-leave-active {
+  opacity: 0;
+}
+
+.ng-move {
+  -webkit-transition: 1s;
+  transition: 1s;  
+  background: gold;
+}
+
+.ng-move-active {
+  background: #fff;
+}
+
+
+

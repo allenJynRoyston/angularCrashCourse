@@ -1,0 +1,286 @@
+<div id='content'  ng-controller="page3Controller" class="hidden" ng-init='init()'>
+
+	
+	<div class='row'>
+		<div class='col-xs-12'>
+			
+			<h1>Loops</h1>
+			<hr>
+		
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs" role="tablist" ng-init="focusOn = 'simple'">
+			    <li role="presentation" class="active"	><a ng-click='focusOn = "simple"' 		role="tab" data-toggle="tab">Simple Array</a></li>
+			    <li role="presentation" 				><a ng-click='focusOn = "objects"' 		role="tab" data-toggle="tab">Array With Objects</a></li>
+			    <li role="presentation"					><a ng-click='focusOn = "images"' 		role="tab" data-toggle="tab">With Images</a></li>
+			    <li role="presentation"					><a ng-click='focusOn = "conditionals"'  	role="tab" data-toggle="tab">With Conditionals</a></li>
+			    
+			  </ul>	
+			
+			<br><br>			
+			
+			<!---------->
+			<div ng-if='focusOn == "simple"'>
+			<div class='col-xs-12'>
+				<h3>ng-repeat With Simple Arrays</h3>
+				<p>
+				Using ng-repeat in it's most basic form requires two parts:  an <code>array</code> to iterate through (<em>$scope.basicArray</em>)
+				and a variable to refer to each iteration (in this case, <em>entry</em>).  Note that we can name our iteration variable
+				anything we want.  We could call it something else and it would still have the same effect (with some restrictions).
+				You should also note that when we refer to a <code>$scope</code> object in the view, we drop the <code>$scope</code> prefix.    
+				</p>	
+				<hr>	
+			</div>
+			
+			
+			<div class='col-xs-12 col-sm-6'>
+				<h3>HTML:</h3>	
+				<pre>
+{{arrayDisplay_ul}}
+				</pre>
+				
+				<h3>Javascript:</h3>	
+				<pre>
+$scope.basicArray = ["Mark", "Henry", "Steve", "Jimmy"];
+	
+				</pre>
+				
+				<h3>Results:</h3>	
+				<pre>
+<div>
+	<p ng-repeat='entry in basicArray'>{{entry}}</p>
+</div>
+				</pre>				
+								
+			</div>
+			
+			<div class='col-xs-12 col-sm-6'>
+				<h3>HTML:</h3>	
+				<pre>
+{{arrayDisplay_div}}
+				</pre>
+				
+				<h3>Javascript:</h3>	
+				<pre>
+$scope.basicArray = ["Mark", "Henry", "Steve", "Jimmy"];
+	
+				</pre>
+				
+				<h3>Results:</h3>	
+				<pre>
+<ul>
+	<li ng-repeat='entry in basicArray'>{{entry}}</li>
+</ul>
+				</pre>	
+			</div>
+			</div>		
+			<!---------->
+			
+			<!---------->
+			<div ng-if='focusOn == "objects"'>
+			<div class='col-xs-12 pull-left'>	
+						<h3>ng-repeat With Arrays and Objects</h3>
+						<p>
+						   
+						</p>	
+			<hr>
+			</div>
+			
+			<div class='col-xs-12 col-sm-6'>
+				<h3>HTML:</h3>	
+				<pre>
+{{arrayDisplay_ul2}}
+				</pre>
+				
+				<h3>Javascript:</h3>	
+				<pre>
+$scope.arrayObject = [
+  {name: "Mark", age: 32, cell: "iPhone"},
+  {name: "Henry", age: 32, cell: "Android"},
+  {name: "Steve", age: 32, cell: "Windows"},
+  {name: "Jimmy", age: 32, cell: "BlackBerry"}
+];
+				</pre>
+				
+				<h3>Results:</h3>	
+				<pre>
+<ul>
+	<li ng-repeat='entry in arrayObject'>{{entry.name}}, {{entry.age}}, {{entry.cell}}</li>
+</ul>
+				</pre>				
+								
+			</div>
+			
+			<div class='col-xs-12 col-sm-6'>
+				<h3>HTML:</h3>	
+				<pre>
+{{arrayDisplay_div2}}
+				</pre>
+				
+				<h3>Javascript:</h3>	
+				<pre>
+$scope.arrayObject = [
+ {name: "Mark", age: 32, cell: "iPhone"},
+ {name: "Henry", age: 20, cell: "Android"},
+ {name: "Steve", age: 45, cell: "Windows"},
+ {name: "Jimmy", age: 60, cell: "BlackBerry"}
+];	
+				</pre>
+				
+				<h3>Results:</h3>	
+				<pre>
+<ul>
+	<p ng-repeat='entry in arrayObject'>{{entry.name}}, {{entry.age}}, {{entry.cell}}</p>
+</ul>
+				</pre>							
+						
+			</div>
+			</div>
+			<!---------->
+			
+			
+			
+			<!---------->
+			<div ng-if='focusOn == "images"'>
+			<div class='col-xs-12 pull-left'>	
+						<h3>ng-repeat With Images</h3>
+						<p>
+						   
+						</p>	
+			<hr>
+			</div>			
+						
+			<hr>
+			<div class='col-xs-12 col-sm-6'>
+				<h3>HTML:</h3>	
+				<pre>
+{{arrayDisplay_ul3}}
+				</pre>
+				
+				<h3>Javascript:</h3>	
+				<pre>
+$scope.arrayObject_withImage = [
+ {name: "Mark", age: 32, cell: "iPhone", image: 'profileIcon.png'},
+ {name: "Henry", age: 20, cell: "Android", image: 'profileIcon.png'},
+ {name: "Steve", age: 45, cell: "Windows", image: 'profileIcon.png'},
+ {name: "Jimmy", age: 60, cell: "BlackBerry", image: 'profileIcon.png'}
+];	
+				</pre>
+				
+				<h3>Results:</h3>	
+				<pre>
+<ul>
+	<li ng-repeat='entry in arrayObject_withImage'><img style='width: 15px; height: 15px' ng-src='media/images/{{entry.image}}'>  {{entry.name}}, {{entry.age}}, {{entry.cell}}</li>
+</ul>
+				</pre>				
+								
+			</div>
+			
+			<div class='col-xs-12 col-sm-6'>
+				<h3>HTML:</h3>	
+				<pre>
+{{arrayDisplay_div3}}
+				</pre>
+				
+				<h3>Javascript:</h3>	
+				<pre>
+$scope.arrayObject_withImage = [
+{name: "Mark", age: 32, cell: "iPhone", image: 'profileIcon.png'},
+{name: "Henry", age: 20, cell: "Android", image: 'profileIcon.png'},
+{name: "Steve", age: 45, cell: "Windows", image: 'profileIcon.png'},
+{name: "Jimmy", age: 60, cell: "BlackBerry", image: 'profileIcon.png'}
+];	
+				</pre>
+				
+				<h3>Results:</h3>	
+				<pre>
+<div ng-repeat='entry in arrayObject_withImage' class='col-xs-3'>
+	<img ng-src='media/images/{{entry.image}}' class='img-responsive'>
+	<p>{{entry.name}}, {{entry.age}}</p>
+</div>
+
+
+				</pre>							
+						
+			</div>
+			</div>
+			<!---------->	
+			
+			
+			
+			<!---------->
+			<div ng-if='focusOn == "conditionals"'>
+			<div class='col-xs-12 pull-left'>	
+						<h3>ng-repeat With Conditionals</h3>
+						<p>
+						   
+						</p>	
+			<hr>
+			</div>			
+						
+			<hr>
+			<div class='col-xs-12 col-sm-6'>
+				<h3>HTML:</h3>	
+				<pre>
+{{arrayDisplay_ul4}}
+				</pre>
+				
+				<h3>Javascript:</h3>	
+				<pre>
+$scope.arrayObject_withImage = [
+ {name: "Mark", age: 32, cell: "iPhone", image: 'profileIcon.png'},
+ {name: "Henry", age: 20, cell: "Android", image: 'profileIcon.png'},
+ {name: "Steve", age: 45, cell: "Windows", image: 'profileIcon.png'},
+ {name: "Jimmy", age: 60, cell: "BlackBerry", image: 'profileIcon.png'}
+];	
+				</pre>
+				
+				<h3>Results:</h3>	
+				<pre>
+Show only results of people older than 35:
+<ul>
+	<li ng-if='entry.age > 35' ng-repeat='entry in arrayObject_withImage'><img style='width: 15px; height: 15px' ng-src='media/images/{{entry.image}}'>  {{entry.name}}, {{entry.age}}, {{entry.cell}}</li>
+</ul>
+				</pre>				
+								
+			</div>
+			
+			<div class='col-xs-12 col-sm-6'>
+				<h3>HTML:</h3>	
+				<pre>
+{{arrayDisplay_div4}}
+				</pre>
+				
+				<h3>Javascript:</h3>	
+				<pre>
+$scope.arrayObject_withImage = [
+{name: "Mark", age: 32, cell: "iPhone", image: 'profileIcon.png'},
+{name: "Henry", age: 20, cell: "Android", image: 'profileIcon.png'},
+{name: "Steve", age: 45, cell: "Windows", image: 'profileIcon.png'},
+{name: "Jimmy", age: 60, cell: "BlackBerry", image: 'profileIcon.png'}
+];	
+				</pre>
+				
+				<h3>Results:</h3>	
+				<pre>
+Show only results of people named Mark.
+<div class='row'>
+<div ng-if='entry.name == "Mark"' ng-repeat='entry in arrayObject_withImage' class='col-xs-3'>
+<img ng-src='media/images/{{entry.image}}' class='img-responsive'>
+<p>{{entry.name}}, {{entry.age}}</p>
+</div>
+</div>
+				</pre>							
+						
+			</div>
+			</div>
+			<!---------->						
+			
+			
+			
+		</div>			
+	</div>
+</div>
+
+<br>
+
+

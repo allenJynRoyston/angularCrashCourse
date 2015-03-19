@@ -1,0 +1,62 @@
+.floatWrapper{
+	position: fixed; 
+	width: 100%;	
+}
+
+.absoluteDiv{
+	position: absolute;	
+}
+
+.absoluteWrapper{
+	position: fixed; 
+	width: 100%; 
+	top: 300px; 
+	bottom: 2%;	
+}
+
+
+.templateContainer{
+	height: 100%; 
+	overflow: auto; 
+}
+
+@media (min-width: 768px) { 
+	.absoluteWrapper{
+		top: 168px;	
+	}
+}
+
+
+.overflow-none{
+	overflow: hidden;	
+}
+
+.active {
+    background-color: green;
+    color: white;
+}
+.inactive {
+    background-color: red;
+    color: white;
+}
+
+a{
+	cursor: pointer	;
+	
+}
+
+.fabulousss {
+	background-color: #FF1493;
+	border: 2px dashed yellow;
+	color: #00FF00;
+    padding: 10px;
+}
+
+.drab {
+	background-color: #666;
+	color: #fff;
+	border: 2px solid black;
+	margin: 0 0 20px 0;
+	padding: 10px;
+}
+

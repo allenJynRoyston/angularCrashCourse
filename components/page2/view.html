@@ -1,0 +1,142 @@
+<div id='content'  ng-controller="page2Controller" class="hidden" ng-init='init()'>
+	<div class='row'>	
+		<div class='col-xs-12'>
+	
+
+			<h1>Controller</h1>
+			<hr>
+		
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs" role="tablist" ng-init="focusOn = 'setup'">
+			    <li role="presentation" class="active"	><a ng-click='focusOn = "setup"' 		role="tab" data-toggle="tab">Setup</a></li>
+			    <li role="presentation" 				><a ng-click='focusOn = "breakdown"' 	role="tab" data-toggle="tab">Breakdown</a></li>
+			    <li role="presentation" 				><a ng-click='focusOn = "tldr"' 		role="tab" data-toggle="tab">tl;dr</a></li>
+			  </ul>	
+			
+			<br><br>
+
+
+
+		
+<div class='row'>
+	
+		<div ng-if='focusOn=="setup"' class='col-xs-12'>
+			<h3>Setup</h3>
+			<hr>
+			<p>
+				Before jumping into Angular, we need to talk about the controller.  Angular can broadly broken down into 
+				two main parts:  the view and the controller, or in other words, the DOM and the code.    
+			</p>
+			<br><br>
+			<p>
+				While we won't go into details on how to setup controllers, we will go into details on what you can 
+				do IN the controller.  If you look into the source code for this tutorial, for example, you'll find
+				that each "page" has it's own view and controller.  
+				<br><br>
+				The code for the controller looks like this:
+				<hr>
+				<pre>
+// define a controller			
+myApp.controller('page2Controller', function($scope) {
+	
+	  // code goes here
+		
+		
+});			
+				</pre>
+				
+		</div>	
+	
+
+		<div ng-if='focusOn=="breakdown"' class='col-xs-12'>
+			<h3>Breaking it Down:</h3>
+			<hr>
+			<div class='col-xs-10 col-xs-offset-1'>
+				<p><code>myApp</code>.controller('page2Controller', function($scope){})</p>
+				<hr>	
+				1.) The first part, myApp, is just the name we've decided to call our application.  We declare it as 
+				soon as possible, typically in the html tag.  Mind you it doesn't HAVE to be named myApp (we could
+				call it anything we wanted), but lets keep it simple for this demo.  
+				<br><br>
+				<img src='media/images/index.jpg' class='img-responsive'>
+				<hr>	
+				<p>myApp.<code>controller</code>('page2Controller', function($scope){})</p>	
+				<hr>	
+				2.)  The second part is simply declaring that we're creating a controller, hence the aptly named <em>controller.</em>
+				<hr>	
+				<p>myApp.controller(<code>'page2Controller'</code>, function($scope){})</p>	
+				<hr>	
+				3.)  This is the name of the controller itself.  You can name this anything you want JUST so long
+				as it matches what's declared in the view (html). 
+				<br><br>
+				<img src='media/images/controller.png' class='img-responsive'>
+				<hr>	
+				<p>myApp.controller('page2Controller', function(<code>$scope</code>){})</p>	
+				<hr>	
+				4.)  This is where our <em>modules</em> will go.  We can talk more about modules later, but for now
+				just recognize modules are what you use to add functionality.  There are a wide range of modules
+				you can add out the box ($timeout, $state, $interval, etc), but for right now, understand
+				that $scope will be what we use to place content on to a page.  For example...   
+				<br><br>
+				<pre>
+	// regular variable
+	var name = "Allen" 
+	
+	// scoped variable
+	$scope.name = "Allen"
+	
+				</pre>
+				<p>
+				... are both ways to declare variables, but only scoped varaibles will allow you to interact 
+				between the controller and the view.<br><br>
+				Keep in mind that you should still use standard variables when doing equations and logic and 
+				using $scope to display those results.<br><br>  
+				You can usually declare up to two thousand (!) scoped variables before
+				it affects browser performance, but if there's no need for them to be on the view, 
+				then there's no need to declare them as $scope.  Note that you can also declare functions, objects 
+				and arrays using $scope.   
+				</p>
+				<hr>
+			</div>		
+		</div>
+		
+		<div ng-if='focusOn=="tldr"' class='col-xs-12'>			
+		<h3>tl;dr</h3>
+		<p>So in summary, all your logic should be written inside the controller.</p>	
+		<hr>	
+		<pre>
+			
+myApp.controller('page2Controller', function($scope) {
+  
+  
+  
+  // scope variables/functions
+  $scope.init = function(){
+	// do something
+  }
+	 
+  $scope.title = "My Controller";
+	 
+  $scope.description = {name: "Allen", title: "Code Ninja"};
+		
+  // standard declaration
+  var i = 0; 
+  
+  function myFunction(){
+  	// do something
+  }
+	
+	
+		
+});		
+		</div>
+
+	
+		</pre>	
+		<hr>		
+<br>&nbsp;<br>&nbsp;<br>
+</div>
+</div>
+</div>
+</div>
+

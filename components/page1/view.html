@@ -1,0 +1,265 @@
+<div id='content'  ng-controller="page1Controller" class="hidden" ng-init='init()'>
+	<div class='row'>	
+		<div class='col-xs-12'>
+	
+
+			<h1>Arrays | Objects | Array-Objects | JSON</h1>
+			<hr>
+		
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs" role="tablist" ng-init="focusOn = 'intro'">
+			  	<li role="presentation" class="active"	><a ng-click='focusOn = "intro"' 		role="tab" data-toggle="tab">Introduction</a></li>
+			    <li role="presentation" 				><a ng-click='focusOn = "array"' 		role="tab" data-toggle="tab">Arrays</a></li>
+			    <li role="presentation" 				><a ng-click='focusOn = "object"' 	role="tab" data-toggle="tab">Objects</a></li>
+			    <li role="presentation" 				><a ng-click='focusOn = "ao"' 		role="tab" data-toggle="tab">Array-Objects</a></li>
+			    <li role="presentation" 				><a ng-click='focusOn = "json"' 		role="tab" data-toggle="tab">JSON</a></li>
+			  </ul>	
+			
+			<br><br>
+
+	
+			<!---->
+			<div ng-if='focusOn == "intro"' class='col-xs-12'>
+				<h3>INTRODUCTION</h3>
+				<p>
+				The most common data format that Angular uses is the JSON, or <em>Javascript Object Notation</em>.  
+				JSONs are an extremely common data format and found in nearly every aspect of web development - and not just for front-end development either.
+				Some databases, such as NoSql and Firebase, rely entirely on JSONs as their sole means of storage.  If you're not familiar with the JSON, 
+				they're (fotunately) very easy to learn.
+				<br><br>
+				Angular takes advantages of this format to display information.  While Objects and JSONs look and behave very similarly, they 
+				syntax and purpose is slightly different.  We'll cover that difference below.
+				<br><br>
+				Lastly, Angular uses arrays to loop through information.  Through the combination of arrays, objects and JSONs, we can do a whole 
+				host of things that are faster and require a lot less code.  
+				</p>
+			</div>
+			<!---->
+
+			<!---->
+			<div ng-if='focusOn == "array"' class='col-xs-12'>
+					<h3>ARRAYS</h3>
+					<p>
+					An array is essentially a way to store multiple variables in one namespace.  I've 
+					always envisioned an array as a giant post office box, and in this box you can put several "things" in it.  
+					Arrays are great because, unlike Objects, each "thing" you place in it has a unique numeric address.  
+					This makes arrays the prefered (and arguably only) smart way to create loops.  This becomes very 
+					important in Angular since some of the best features take advantage of automating loops.  
+					<br><br>
+					Arrays don't have to contain the same data types (i.e. strings, numbers, boolean, etc); they can be mixed and matched
+					however you need them.  You can also place arrays in arrays in what's known as "nesting".
+					<hr>	
+				<pre>
+// single data type array
+var simpleArray = [1, 2, 4, 5, 7, 8, 10]
+		
+// mixed array
+var mixedArray = ["Allen", 32, true]	
+
+// nexted array
+var nestedArray = [1, ["Allen", 32, true], 2, 4, 5, 6]
+
+console.log(nestedArray[0])		outputs 1
+
+console.log(nestedArray[1])		outputs [["Allen"], 32, true]
+
+console.log(nestedArray[1][0])		outputs "Allen"
+	
+				</pre>
+				<br><br>
+			</div>
+			<!---->
+
+			<!---->
+			<div ng-if='focusOn == "object"' class='col-xs-12'>
+				<h3>OBJECTS</h3>
+				<p>
+				Similar to Arrays, using an object is a great way to prevent polluting the global namespace by 
+				allowing you to define multiple variables and merging them into one. However, unlike Arrays, Objects
+				do not have a numeric "address" but rather properties.  Objects also benefit from being a lot easier to 
+				read for this reason.    
+				<br><br>
+				You can do some really amazing things with an object.  Below are just a few very simple examples
+				of what's allowed.  This is not by any means an exhausted list.  
+				</p>
+				<hr>	
+				<div class='row'>
+					<div class='col-xs-6'>
+				<pre>
+var dog = {
+  name:  	"Tuxedo",
+  breed: 	"Pitbull",
+  fur:		"short",
+  age:		6
+  likesCats:	false,	
+}	
+				</pre>
+					</div>
+					<div class='col-xs-6'>
+				<pre>
+var person = {
+  name:  	"Will Powers",
+  age: 		32,
+  gender:	"male",
+  pets:		"Cat"		
+  single:	true,	
+}	
+				</pre>
+					</div>
+					<div class='col-sm-6 col-xs-12'>
+					You can also place arrays in objects!	
+				<pre>
+var allen = {
+  likes:		["Code", "Girls"],
+  dislikes:		["Bears", "Tradition", "Clowns"],
+  fears:		[],
+  pets:			["Dog"]		
+  hobbies:		["Shark punching"],	
+}	
+				</pre>
+					</div>
+
+				</div>	
+				
+				<hr>	
+					An object is always delcared with curvy brackets {} and properties are assigned using their prefereed data format, i.e., 
+					strings are wrapped in single or double quotes ("" / '') while numbers and booleans are left bare.  
+					<br><br>
+					If you wanted to view a property of an object in Javascript, you'd simple do:
+					<hr>
+				<pre>		
+console.log(person.name)		// outputs Will Powers
+
+console.log(person.single)		// outputs true
+
+console.log(dog.breed)			// outputs Pitbull  
+
+console.log(allen.likes[0])		// outputs Code
+
+console.log(allen.fears)		// outputs [] *because I fear nothing.*
+
+singletonObj.showMessage("Hello!")	// outputs "Hello!"
+				</pre>
+				
+				</div>
+				<!---->	
+
+
+				<!---->
+				<div ng-if='focusOn == "ao"' class='col-xs-12'>
+					<h3>Array-Objects</h3>
+					<p>
+					This leads us to Array-Objects. Arrays-Objects are not a unique data format like arrays or objects; rather, they're 
+					quite simply, arrays with objects in them.  This deserve some form of special mention since you'll 
+					be seeing this arrangement quite often if you're using Angular.
+					<br><br>
+					It's also important to understand why we're using Array-Objects and not Object-Arrays.  
+					The array format allows us to iterate through a loop when using things like <code>ng-repeat</code> 
+					while the object in each iteration allows us to view the properties in a logical way.  
+					<br><br>
+					For example, observe the code snippet below.
+					<hr>
+		<pre>
+// valid arrayObject			
+$scope.myDogs = [
+  {name:  	"Tuxedo", breed: 	"Pitbull",	 age: 6},
+  {name:  	"Suits",  breed: 	"Bulldog",	 age: 3},
+  {name:  	"Socks",  breed: 	"Beagle",	 age: 1},
+]		
+
+console.log($scope.myDogs[0])
+// outputs  {name:  	"Tuxedo", breed: 	"Pitbull",	 age: 6}
+
+console.log($scope.myDogs[0].name)
+// outputs  "Tuxedo"
+
+console.log($scope.myDogs[1].breed)
+// outputs  "Pitbull"
+		</pre>
+					<hr>
+					<p></p>
+				  
+				</div>
+				<!---->
+
+
+
+				<!---->
+				<div ng-if='focusOn == "json"' class='col-xs-12'>
+					<h3>JSON</h3>
+					<p>
+					JSONS can look very similar to Objects, but their syntax and limitations are different.  A JSON, for example,
+					requires both a <em>key</em> and <em>value</em> pair, and must be wrapped as a string.  So a very basic JSON would look like this.
+					<hr>
+					<pre>
+// key  : value    key : value   key  :  value
+________________________________________________
+	
+{"key1": "pair1", "key2": "pair2", "key3" : "pair3"}
+{"name": "Allen", "age": "32", "single": "true"}  	
+					</pre>
+					<hr>
+					You won't typically write a JSON; preferably, you'll convert an existing object and have Javascript wrap it properly for you.  
+					Also note that JSONs cannot be interpreted by Javascript unless they've been converetd into an Object first
+					(well they can, but it will be read as one giant string).  Luckily for us, conversion is SUPER simple and can really 
+					be accomplished with just a line or two of code. 
+					<hr>
+					<pre>
+// our object
+var objectExample = {
+ 	name:	"Allen",
+ 	isMale:	true,
+ 	age:	23
+}	
+
+// convert Object to JSON 
+var converted = JSON.stringify(objectExample)
+
+// convert JSON to Object
+var newObj = JSON.parse(converted)
+
+console.log(newObj.name)  // outputs "Allen"
+					</pre>	
+					
+				<hr>	
+				
+				<br>	
+				<h3>JSON Limitations</h3>
+				As I mentioned before, JSONs are limited to what you can put in them.  You won't be able to store functions or non data-type information, 
+				but you can nest arrays and other objects in them to store pretty much anything you could possibly need.
+				<br></br>
+					<pre>
+// our object
+var objectExample = {
+ 	personnel: [
+ 		{name: "Allen", level: "ninja"},
+ 		{name: "Ben", level: "wizard"},
+ 		{name: "Flannery", level: "expert"}
+ 	],
+ 	lottoNumbers: [1, 2, 3, 4, 5]
+}	
+
+// convert Object to JSON 
+var converted = JSON.stringify(objectExample)
+
+// convert JSON to Object
+var newObj = JSON.parse(converted)
+
+console.log(newObj.personnel[0])        // outputs Object {name: "Allen", level: "ninja"},
+
+console.log(newObj.personnel[0].level)  // outputs "ninja"
+
+console.log(newObj.lottoNumbers)	// outputs Array [1, 2, 3, 4, 5]
+
+console.log(newObj.lottoNumbers[0])	// outputs 1	
+					</pre>	
+				  
+				</div>
+				<!---->
+				
+				
+		</div>
+	</div>
+</div>
+
+
