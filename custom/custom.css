@@ -31,18 +31,13 @@
 	overflow: hidden;	
 }
 
-.active {
-    background-color: green;
-    color: white;
-}
-.inactive {
-    background-color: red;
-    color: white;
-}
+
 
 a{
 	cursor: pointer	;
-	
+}
+a:hover{
+	color: rgba(240, 22, 22, 1) !important;
 }
 
 .fabulousss {

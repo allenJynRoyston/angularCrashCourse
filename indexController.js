@@ -8,12 +8,12 @@ var myApp = angular.module('myApp', ["ui.router", "ngSanitize"]);
 		  /////////////////////////////////////
 		  // SET VARIABLES
 		  $scope.links = [
-		  	{title: "Why Use Angular?",	href: "examples"},
-		  	{title: "Arrays/Objects",	href: "route1"},
-		  	{title: "Controller", 		href: "route2"},
-		  	{title: "Loops",	 		href: "route3"},
-		  	{title: "Attributes",		href: "route4"},
-		  	{title: "Sandbox",			href: "route5"},
+		  	{title: "Why Use Angular?",	href: "home"},
+		  	{title: "Core Concepts",	href: "core"},
+		  	{title: "Controller", 		href: "controller"},
+		  	{title: "Loops",	 		href: "loops"},
+		  	{title: "Attributes",		href: "attributes"},
+		  	{title: "Sandbox",			href: "sandbox"},
 		  ];
 		  //
 		  /////////////////////////////////////

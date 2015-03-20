@@ -4,7 +4,7 @@
 	
 
 			<h1>A<code>ng</code>ular Behaviors and Attributes</h1>
-			<hr>
+			<br><br>
 		
 			  <!-- Nav tabs -->
 			  <ul class="nav nav-tabs" role="tablist" ng-init="focusOn = 'nginit'">
@@ -16,6 +16,7 @@
 			    <li role="presentation"					><a ng-click='focusOn = "ngsrc"'  		role="tab" data-toggle="tab">ng-src</a></li>
 			    <li role="presentation"					><a ng-click='focusOn = "ngclass"'  	role="tab" data-toggle="tab">ng-class</a></li>
 			    <li role="presentation"					><a ng-click='focusOn = "ngshow"' 	 	role="tab" data-toggle="tab">ng-show/hide</a></li>
+			    <li role="presentation"					><a ng-click='focusOn = "ngif"' 	 	role="tab" data-toggle="tab">ng-if</a></li>
 			  </ul>	
 			
 			<br><br>
@@ -26,16 +27,17 @@
 				<h3>ng-Init</h3>
 				<hr>
 				<p>
-					Used to create or assign a scoped variable on startup.  Can also be used to call a function.  
+					Used to create or assign a scoped variable on startup.  Can also be used to call a function. 
+					Can use as many ng-inits as you need; one does not rewrite another.  
 				</p>
 				<hr>
-				<div class='col-xs-12 col-sm-6'>
+				<div class='col-xs-12 '>
 					<h3>HTML:</h3>	
 					<pre>
 {{ngInitExample}}						
 					</pre>
 				</div>
-				<div class='col-xs-12 col-sm-6'>	
+				<div class='col-xs-12 '>	
 					<h3>Javascript:</h3>	
 <pre>
 $scope.initFunction = function(){
@@ -59,13 +61,15 @@ $scope.initFunction = function(){
 			<div ng-if='focusOn == "ngclick"' class='col-xs-12 pull-left'>
 				<h3>ng-Click</h3>
 				<hr>
-				<div class='col-xs-12 col-sm-6'>
+				Attach to any element.  Connects a scoped function to the keypress event.
+				<hr>
+				<div class='col-xs-12 '>
 					<h3>HTML:</h3>	
 					<pre>
 {{onClickExample}}
 					</pre>
 				</div>
-				<div class='col-xs-12 col-sm-6'>	
+				<div class='col-xs-12 '>	
 					<h3>Javascript:</h3>	
 <pre>
 $scope.counter = 0;	
@@ -92,13 +96,15 @@ Counter: {{counter}}
 			<div ng-if='focusOn == "ngmodel"' class='col-xs-12 pull-left'>
 				<h3>ng-Model</h3>
 				<hr>
-				<div class='col-xs-12 col-sm-6'>
+				Allows you to bind a scoped variable to inputs, select boxes (drop down menus), or textareas.
+				<hr>
+				<div class='col-xs-12 '>
 					<h3>HTML:</h3>	
 					<pre>
 {{ngModelExample}}						
 					</pre>
 				</div>
-				<div class='col-xs-12 col-sm-6'>	
+				<div class='col-xs-12 '>	
 					<h3>Javascript:</h3>	
 <pre>
 $scope.answers = {
@@ -127,13 +133,15 @@ $scope.answers = {
 			<div ng-if='focusOn == "ngchange"' class='col-xs-12 pull-left'>
 				<h3>ng-Change</h3>
 				<hr>
-				<div class='col-xs-12 col-sm-6'>
+				Attach an onchange event to a scoped function.  Works best with input, select boxes (drop down menus), and textareas.    
+				<hr>
+				<div class='col-xs-12 '>
 					<h3>HTML:</h3>	
 					<pre>
 {{onChangeExample}}						
 					</pre>
 				</div>
-				<div class='col-xs-12 col-sm-6'>	
+				<div class='col-xs-12 '>	
 					<h3>Javascript:</h3>	
 <pre>
 $scope.runOnChange = function(number){
@@ -157,13 +165,17 @@ $scope.runOnChange = function(number){
 			<div ng-if='focusOn == "ngoptions"' class='col-xs-12 pull-left'>
 				<h3>ng-Options</h3>
 				<hr>
-				<div class='col-xs-12 col-sm-6'>
+				Used to create options for a select box (drop down menu).  
+				<br>
+				<strong>* To set a default, use ng-init. The ng-model must match the options value.  In this case, it happens to be entry.id, but it could easily be a string.</strong>
+				<hr>
+				<div class='col-xs-12 '>
 					<h3>HTML:</h3>	
 					<pre>
 {{ngSelectExample}}						
 					</pre>
 				</div>
-				<div class='col-xs-12 col-sm-6'>	
+				<div class='col-xs-12 '>	
 					<h3>Javascript:</h3>	
 <pre>
 $scope.ngSelectList = [
@@ -176,7 +188,7 @@ $scope.ngSelectList = [
 				<div class='col-xs-12'>	
 					<h3>Results:</h3>	
 					<pre>
-<select ng-model='ngOptionsAnswer' ng-options="entry.id as entry.title for entry in ngSelectList"></select>	
+<select ng-model='ngOptionsAnswer' ng-options="entry.id as entry.title for entry in ngSelectList" ng-init='ngOptionsAnswer = 2'></select>	
 <hr>
 Selected: {{ngOptionsAnswer}}				
 					</pre>		
@@ -190,13 +202,15 @@ Selected: {{ngOptionsAnswer}}
 			<div ng-if='focusOn == "ngsrc"' class='col-xs-12 pull-left'>
 				<h3>ng-Src</h3>
 				<hr>
-				<div class='col-xs-12 col-sm-6'>
+				Use ng-src when you have a scoped variable that references an image.  Can be relative or an url.  
+				<hr>
+				<div class='col-xs-12 '>
 					<h3>HTML:</h3>	
 					<pre>
 {{ngImageExample}};						
 					</pre>
 				</div>
-				<div class='col-xs-12 col-sm-6'>	
+				<div class='col-xs-12 '>	
 					<h3>Javascript:</h3>	
 <pre>
 $scope.ngSelectObj =
@@ -228,17 +242,23 @@ $scope.ngSelectObj2 = "profileIcon.png"
 .redOutline{
   border: 1px solid red
 }
+
+.outline{
+	border: 1px solid orange;
+}
 </style>			
 			<div ng-if='focusOn == "ngclass"' class='col-xs-12 pull-left'>
 				<h3>ng-Class</h3>
 				<hr>
-				<div class='col-xs-12 col-sm-6'>
+				Attach a class using a scoped variable.  Note that you can combine this with a standard html class attribute.
+				<hr>
+				<div class='col-xs-12 '>
 					<h3>HTML:</h3>	
 					<pre>
 {{ngClassExample}}						
 					</pre>
 				</div>
-				<div class='col-xs-12 col-sm-6'>	
+				<div class='col-xs-12 '>	
 					<h3>Javascript:</h3>	
 <pre>
 $scope.simpleClass = "outline";
@@ -265,13 +285,17 @@ $scope.simpleClass = "outline";
 			<div ng-if='focusOn == "ngclass"' class='col-xs-12 pull-left' ng-init='myCondition = true'>
 				<h3>ng-Class with Conditionals</h3>
 				<hr>
-				<div class='col-xs-12 col-sm-6'>
+				ng-Class can also be conditional.  The format is slightly different.  
+				<br>
+				<code>ng-class="{condition1: 'classname', condition2: 'classname', condition3: 'classname'}[variable]"</code>
+				<hr>
+				<div class='col-xs-12 '>
 					<h3>HTML:</h3>	
 					<pre>
 {{ngClassConditional}}						
 					</pre>
 				</div>
-				<div class='col-xs-12 col-sm-6'>	
+				<div class='col-xs-12 '>	
 					<h3>Javascript:</h3>	
 <pre>
 $scope.myCondition = true;
@@ -281,16 +305,16 @@ $scope.myCondition = true;
 					<h3>Results:</h3>	
 					
 					<pre>
-<select ng-model='myCondition'>
+<select ng-model='myVariable' ng-init='myVariable = true'>
 	<option value="true">True</option>
 	<option value="false">False</option>
 </select>						
 <div class='small-12'>
-	<div class='img-responsive' ng-class="{true: 'blueOutline', false: 'redOutline'}[myCondition]">
+	<div class='img-responsive' ng-class="{true: 'blueOutline', false: 'redOutline'}[myVariable]">
 	 <center>
- Condition: {{myCondition}}
+ Condition: {{myVariable}}
  <hr>
- <i class='fa fa-4x' ng-class='{true: "fa-thumbs-o-up", false: "fa-thumbs-o-down" }[myCondition]'></i>
+ <i class='fa fa-4x' ng-class='{true: "fa-thumbs-o-up", false: "fa-thumbs-o-down" }[myVariable]'></i>
  <br>
 	 </center>
 	</div>					
@@ -308,13 +332,15 @@ $scope.myCondition = true;
 			<div ng-if='focusOn == "ngshow"' class='col-xs-12 pull-left' ng-init=''>
 				<h3>ng-Show | ng-Hide</h3>
 				<hr>
-				<div class='col-xs-12 col-sm-6'>
+				Similar to ng-class, but can only hide / show elements.
+				<hr>
+				<div class='col-xs-12 '>
 					<h3>HTML:</h3>	
 					<pre>
 {{ngShowExample}}						
 					</pre>
 				</div>
-				<div class='col-xs-12 col-sm-6'>	
+				<div class='col-xs-12 '>	
 					<h3>Javascript:</h3>	
 <pre>
 $scope.isShowing = true;
@@ -322,9 +348,7 @@ $scope.isShowing = true;
 				</div>
 				<div class='col-xs-12 pull-left' ng-init='simpleClass = "outline"'>	
 					<h3>Results:</h3>	
-					<pre>
-						
-						isShowing: <button  ng-click='isShowing = !isShowing'>{{isShowing}}</button>
+					<pre>isShowing: <button  ng-click='isShowing = !isShowing'>{{isShowing}}</button>
 												
 						<div class='col-xs-12' ng-show='isShowing' style='background: white;' >
 							<center>
@@ -347,6 +371,45 @@ Should appear on false:
 			</div>	
 			<!-- end ngClass/w -->		
 	
+		
+
+
+			<!-- ngIf -->					
+			<div ng-if='focusOn == "ngif"' class='col-xs-12 pull-left' ng-init=''>
+				<h3>ng-If</h3>
+				<hr>
+				Unlike ng-hide, ng-if will remove the wrapped html if the conditions are not met.  Will rerender contents each time ng-if is set to true.  
+				<hr>
+				<div class='col-xs-12 '>
+					<h3>HTML:</h3>	
+					<pre>
+{{ngIfExample}}						
+					</pre>
+				</div>
+				<div class='col-xs-12 '>	
+					<h3>Javascript:</h3>	
+<pre>
+$scope.isShowing = true;
+</pre>
+				</div>
+				<div class='col-xs-12 pull-left' >	
+					<h3>Results:</h3>	
+					<pre>isShowing: <button  ng-click='isShowing = !isShowing'>{{isShowing}}</button>
+												
+						<div class='col-xs-12' ng-if='isShowing' style='background: white;' >
+							<center>
+Only rendered if set to TRUE
+								<img class='img-responsive' src='http://lorempixel.com/400/200/'>
+							</center>
+						</div>	
+						
+								
+						
+					</pre>		
+				</div>
+				<br><br>
+			</div>	
+			<!-- end ngClass/w -->			
 		
 				
 		</div>

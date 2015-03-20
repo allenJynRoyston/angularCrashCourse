@@ -2,18 +2,49 @@
 	
 	
 	<h1>Why Use A<code>ng</code>ularJS</h1>
-	<p>Because it will save you a <em>ton</em> of time.  Here is a brief list of conventions written with Angular and it's jQuery counterpart.</p>
-	<hr>
-
+	<br><br>
+	
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist" ng-init="focusOn = 'sb'">
-    <li role="presentation" class="active"	><a ng-click='focusOn = "sb"' 	role="tab" data-toggle="tab">Simple Binding</a></li>
+  <ul class="nav nav-tabs" role="tablist" ng-init="focusOn = 'intro'">
+  	 <li role="presentation" class="active"	><a ng-click='focusOn = "intro"' 	role="tab" data-toggle="tab">Introduction</a></li>
+    <li role="presentation" 				><a ng-click='focusOn = "sb"' 	role="tab" data-toggle="tab">Simple Binding</a></li>
     <li role="presentation" 				><a ng-click='focusOn = "db"' 	role="tab" data-toggle="tab">Two-Way Binding</a></li>
     <li role="presentation"					><a ng-click='focusOn = "list"'  	role="tab" data-toggle="tab">Lists</a></li>
     <li role="presentation"					><a ng-click='focusOn = "table"'  	role="tab" data-toggle="tab">Filters</a></li>
   </ul>	
 	
 	<br><br>
+	<div class='row' ng-if='focusOn == "intro"'>
+		<div class='col-xs-12 pull-left'>
+			<h3>It's A Time Saver</h3>		
+			<p>
+			Using Angular can save you a ton of time.  For as awesome as jQuery is, having to depend on
+			event binders, append/prepends, and traversing the DOM to manipulate your page can be quite a 
+			headache.  Using Angular you can eliminate quite a bit of code.
+			<br><br>
+			<h3>There's a Ton of Plugins</h3>	
+			There's also an extensive library of modules you can use to extend the functionality of your
+			web app that range from anywhere from <a href='http://ngmodules.org/modules/adaptive-googlemaps'>google maps</a>, 
+			to <a href='http://ngmodules.org/modules/adaptive-motion'>web cam control</a>, to <a href='http://ngmodules.org/modules/adaptive-speech'>speech integration</a>, 
+			to <a href='http://ngmodules.org/modules/adaptive-youtube'>youtube videos</a>.  And that's just a small sample.  
+			You can find pretty much anything you could possibly need <a href='http://ngmodules.org/'>here.</a>  
+			<br><br>
+			<h3>It's The Easiest to Learn</h3>  
+			There are several other frameworks that can do what Angular does (EmberJS, Handlebars, Backbone, etc), but Angular 
+			(in my opinion) is probably the easily to learn, in part due to the large community of developers and supporters.  
+			99% of every question I have ever had somebody else has already asked and a large majority of them have been
+			answered by just a simple Google search.  
+			<br><br>		
+			<h3>Download the Source Code</h3>
+			If you've never used Angular and need a quick template to start with, download this sites source code.  
+			It can be <a href='https://github.com/allenRoyston/angularCrashCourse'>downloaded</a> here.  
+			Feel free to take it apart, tinker with it, or reshape it into your own personal website.  
+			</p>
+			<hr>	
+
+		</div>
+	</div>	
+	
 	<div class='row' ng-if='focusOn == "sb"'>
 		<div class='col-xs-12 pull-left'>
 			<h3>Example 1:  Simple Binding</h3>		

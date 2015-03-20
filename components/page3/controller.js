@@ -20,6 +20,9 @@ myApp.controller('page3Controller', function($scope, $timeout) {
 		$scope.arrayDisplay_ul4  = "<li ng-if='entry.age > 35'\nng-repeat='entry in arrayObject_withImage'>\n<img style='width: 15px; height: 15px'\nng-src='media/images/{{entry.image}}'>\n{{entry.name}}, {{entry.age}}, {{entry.cell}}\n</li>";
 		$scope.arrayDisplay_div4 = "<div ng-if='entry.name == \"Mark\"\n'ng-repeat='entry in arrayObject_withImage' class='col-xs-3'>\n<img ng-src='media/images/{{entry.image}}' class='img-responsive'>\n<p>{{entry.name}}, {{entry.age}}</p>\n</div>";					
 		
+		
+		$scope.arrayDisplay_ul5 = "<ul>\n<li ng-repeat='entry in arrayObject_nested'>{{entry.name}}\n<ul>\n<li ng-repeat='pet in entry.pets'>{{pet.type}}\n</li>\n</ul>\n</li>\n</ul>";
+		$scope.arrayDisplay_div5 = "<div ng-repeat='entry in arrayObject_nested'>\n- {{entry.name}} has a \n<span ng-repeat='pet in entry.pets'>[{{pet.type}}]</span>\n</div>";
 
 		// listExample 
 		$scope.basicArray = ["Mark", "Henry", "Steve", "Jimmy"];
@@ -42,9 +45,16 @@ myApp.controller('page3Controller', function($scope, $timeout) {
 		  {name: "Jimmy", age: 60, cell: "BlackBerry", image: 'profileIcon.png'}
 		];	
 		
-		
+		// nested
+		$scope.arrayObject_nested = [
+		 {name: "Mark", pets: [{type:"dog"}, {type:"cat"}, {type:"bird"}]},
+		 {name: "Henry", pets: [{type:"fish"}]},
+		 {name: "Steve", pets: [{type:"hamster"}, {type:"bird"}]},
+		 {name: "Jimmy", pets: [{type:"dog"}, {type:"pig"}, {type:"ferret"}]},
+		];		
 
 		
+
 });
 
 

@@ -2,52 +2,52 @@
     myApp.config(function($stateProvider, $urlRouterProvider){
     
 		// default
-		$urlRouterProvider.otherwise("/examples");
+		$urlRouterProvider.otherwise("/home");
 	  	
 	    // states
 	    $stateProvider
-	        .state('examples', {
-	            url: "/examples",
+	        .state('home', {
+	            url: "/home",
 	            views: {
 	                "component_1": {
 	                	templateUrl: "components/home/view.html"                    
 	                },
 	            }
 	        })
-	        .state('route1', {
-	            url: "/route1",
+	        .state('core', {
+	            url: "/core",
 	            views: {
 	                "component_1": {
 	                	templateUrl: "components/page1/view.html"                     
 	                },
 	            }
 	        })
-	        .state('route2', {
-	            url: "/route2",
+	        .state('controller', {
+	            url: "/controller",
 	            views: {
 	                "component_1": {
 	                	templateUrl: "components/page2/view.html"                    
 	                },
 	            }
 	        })
-	        .state('route3', {
-	            url: "/route3",
+	        .state('loops', {
+	            url: "/loops",
 	            views: {
 	                "component_1": {
 	                	templateUrl: "components/page3/view.html"           
 	                },
 	            }
 	        })
-	        .state('route4', {
-	            url: "/route4",
+	        .state('attributes', {
+	            url: "/attributes",
 	            views: {
 	                "component_1": {
 	                	templateUrl: "components/page4/view.html"               
 	                },
 	            }
 	        })
-	        .state('route5', {
-	            url: "/route5",
+	        .state('sandbox', {
+	            url: "/sandbox",
 	            views: {
 	                "component_1": {
 	                	templateUrl: "components/page5/view.html"               
