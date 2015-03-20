@@ -15,7 +15,7 @@ http://crashcode.ninja/angularJS
 
 ### Installation
 
-Angular Crash Course requires the user of a server to run properly.  As such, run via MAMP/WAMP/XAMPP, or similar client-side server.  
+Angular Crash Course requires the use of a server to run properly.  As such, first install MAMP/WAMP/XAMPP, or similar client-side server before starting. 
 
 * If you're using a Mac, ensure you place the entire contents of the repo in the HTDOCS folder.  
 * Start MAMP, open your browser of choice, then enter in the address bar:
