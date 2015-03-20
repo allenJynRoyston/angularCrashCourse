@@ -7,25 +7,15 @@ If you need a crash course in AngularJS, look no further.  Contained within thes
   - Quick references for developers of all experience levels!  
 
 
-
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
-
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
 ### Site 
-www.codeandlogic.com/sites/angularCrashCourse
+http://crashcode.ninja/angularJS
 
 ### Version
 1.0.0
 
 ### Installation
 
-Angular Crash Course requires the user of a server to run properly.  As such, run via MAMP/WAMP/XAMPP, or similar client-side server.  
+Angular Crash Course requires the use of a server to run properly.  As such, first install MAMP/WAMP/XAMPP, or similar client-side server before starting. 
 
 * If you're using a Mac, ensure you place the entire contents of the repo in the HTDOCS folder.  
 * Start MAMP, open your browser of choice, then enter in the address bar:
@@ -42,6 +32,12 @@ localhost:8888/angularCrashCourse
 localhost/angularCrashCourse
 ```
 
+You can also install via a hosting service (justhost, goDaddy, etc).  
+
+### Want to Contribute?
+
+Great!  Just make a fork and submit a pull request.  I'm sure I've made more than a few mistakes.  
+
 ### Requirements
 
 None, just get that local server installed or else you will see nothing. NOTHING!
@@ -55,7 +51,6 @@ Angular Crash Course comes with the following plugins (for tutorial purposes).
 * ng-sanitize
 * ui-router
 * jQuery
-
 
 
 ### Development
