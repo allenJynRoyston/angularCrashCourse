@@ -42,6 +42,12 @@ localhost:8888/angularCrashCourse
 localhost/angularCrashCourse
 ```
 
+You can also install via a hosting service (justhost, goDaddy, etc).  
+
+### Want to Contribute?
+
+Great!  Just make a fork and submit a pull request.  I'm sure I've made more than a few mistakes.  
+
 ### Requirements
 
 None, just get that local server installed or else you will see nothing. NOTHING!
@@ -55,7 +61,6 @@ Angular Crash Course comes with the following plugins (for tutorial purposes).
 * ng-sanitize
 * ui-router
 * jQuery
-
 
 
 ### Development
