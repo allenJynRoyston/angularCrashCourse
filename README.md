@@ -18,7 +18,7 @@ If you need a crash course in AngularJS, look no further.  Contained within thes
 
 This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
 ### Site 
-www.codeandlogic.com/sites/angularCrashCourse
+http://crashcode.ninja/angularJS
 
 ### Version
 1.0.0
